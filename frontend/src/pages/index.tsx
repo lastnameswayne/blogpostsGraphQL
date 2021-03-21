@@ -1,5 +1,6 @@
-import { Box, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
 import React from "react";
+import { GameCard } from "../../Component/GameCard";
 import { useGamesQuery } from "../generated/graphql";
 
 const Index = () => {
@@ -13,9 +14,15 @@ const Index = () => {
         {!data
           ? null
           : data.games.map((e) => {
-              return <Box key={e.id}>{e.date}</Box>;
+              return (
+                <GameCard
+                  myTeamScore={e.myTeamScore}
+                  opponentTeamScore={e.opponentTeamScore}
+                  date={e.date}
+                  key={e.id}
+                ></GameCard>
+              );
             })}
-        :
       </Box>
     );
   }
