@@ -1,0 +1,8 @@
+query Games {
+  games {
+    id
+    myTeamScore
+    opponentTeamScore
+    date
+  }
+}
